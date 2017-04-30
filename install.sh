@@ -21,3 +21,4 @@ php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations --inter
 phpmyadmin-ctl install
 
 echo -e "site user: $HGUSER \npassword : $yii2passwd"
+rm install.sh
