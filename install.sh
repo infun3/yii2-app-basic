@@ -7,7 +7,8 @@ mysql -u$C9_USER -e "CREATE DATABASE yii2basic /*\!40100 DEFAULT CHARACTER SET u
 # replace root with c9 username
 sed -i -e "s~root~${C9_USER}~g" config/db.php
 RANDOMKEY=$(date +%s | sha256sum | base64 | head -c 32)
-sed -i -e "s~RANDOMKEY~${RANDOMKEY}~g" config/web.php
+#sed -i -e "s~RANDOMKEY~${RANDOMKEY}~g" config/web.php
+sed -i "34s/.*/\t\t'cookieValidationKey' => '${RANDOMKEY}',/" config/web.php
 sed -i -e "s~URNAME~${HGUSER}~g" config/web.php
 # install yii2-user
 #composer require dektrium/yii2-user
