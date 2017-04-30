@@ -14,11 +14,24 @@ $config = [
 			'cost' => 12,
 			'admins' => ['URNAME']
 		],
+       'gridview' => [
+              'class' => '\kartik\grid\Module',
+              // see settings on http://demos.krajee.com/grid#module
+          ],
+          'datecontrol' => [
+              'class' => '\kartik\datecontrol\Module',
+              // see settings on http://demos.krajee.com/datecontrol#module
+          ],
+          // If you use tree table
+          'treemanager' =>  [
+              'class' => '\kartik\tree\Module',
+              // see settings on http://demos.krajee.com/tree-manager#module
+          ]
 	],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'RANDOMKEY',
+	'cookieValidationKey' => 'NjU0NjZiNGMwMGM5NzU3Y2ZkZTMyZTA3',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
