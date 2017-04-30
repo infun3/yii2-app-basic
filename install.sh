@@ -10,7 +10,7 @@ RANDOMKEY=$(date +%s | sha256sum | base64 | head -c 32)
 sed -i -e "s~RANDOMKEY~${RANDOMKEY}~g" config/web.php
 sed -i -e "s~URNAME~${HGUSER}~g" config/web.php
 # install yii2-user
-composer require dektrium/yii2-user
+#composer require dektrium/yii2-user
 php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations --interactive=0
 
 # CREATE USER
