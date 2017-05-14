@@ -7,6 +7,7 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
 	'modules' => [
+	'rbac' => 'dektrium\rbac\RbacWebModule',
 		'user' => [
 			'class' => 'dektrium\user\Module',
 			'enableUnconfirmedLogin' => true,
