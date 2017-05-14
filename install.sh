@@ -11,16 +11,15 @@ RANDOMKEY=$(date +%s | sha256sum | base64 | head -c 32)
 sed -i "34s/.*/\t\t'cookieValidationKey' => '${RANDOMKEY}',/" config/web.php
 sed -i -e "s~URNAME~${HGUSER}~g" config/web.php
 # install yii2-user
-#composer require dektrium/yii2-user
 php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations --interactive=0
-
+php yii migrate/up --migrationPath=@yii/rbac/migrations --interactive=0
 # CREATE USER
 ./yii user/create $C9_EMAIL $HGUSER $yii2passwd
 
 #install phpmyadmin
-phpmyadmin-ctl install
+#phpmyadmin-ctl install
 
-mv 001-cloud9.conf  /etc/apache2/sites-available/001-cloud9.conf
+sudo mv 001-cloud9.conf  /etc/apache2/sites-available/001-cloud9.conf
 read -p "set password for $HGUSER" yii2passwd
 echo -e "site user: $HGUSER \npassword : $yii2passwd"
 rm install.sh
